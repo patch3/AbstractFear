@@ -37,7 +37,12 @@ public class TrackingBullet : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Player")) Destroy(gameObject); // удаляем если пуля пересекла цель
-
+        if (other.CompareTag("Player")) {
+            if (other.CompareTag("Player")) {
+                PlayerHope hope = other.gameObject.GetComponent<PlayerHope>();
+                hope.DealDamage(1);
+                Destroy(gameObject); // удаляем если пуля пересекла цель
+            }
+        }
     }
 }

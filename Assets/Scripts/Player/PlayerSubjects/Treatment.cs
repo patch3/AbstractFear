@@ -1,20 +1,18 @@
 using UnityEngine;
 
 public class Treatment : MonoBehaviour{
-    [SerializeField] private GameObject _maxAngle;
-    [SerializeField] private GameObject _minAngle;
 
-    [SerializeField] private GameObject _subjectTreatMent;
+    [SerializeField] protected float DestroyTime = 5f;
 
-    [SerializeField] private float _startTimeSpawn = 15f;
-    [SerializeField] private float _timeSpawn = 20f;
+    void Start() {
+        Destroy(gameObject, DestroyTime);
+    }
 
-    // Update is called once per frame
-    void FixedUpdate(){
-        if (_timeSpawn <= 0) {
-
-        } else {
-            _timeSpawn -= 0.02f;
-        }
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Player")) {
+            PlayerHope hope = other.gameObject.GetComponent<PlayerHope>();
+            hope.Hiling(1);
+            Destroy(gameObject);
+        }; // удаляем если пуля пересекла цель
     }
 }
