@@ -608,7 +608,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &823945476
 GameObject:
@@ -1183,8 +1183,8 @@ GameObject:
   - component: {fileID: 2042018638}
   - component: {fileID: 2042018637}
   - component: {fileID: 2042018641}
-  - component: {fileID: 2042018639}
   - component: {fileID: 2042018640}
+  - component: {fileID: 2042018644}
   - component: {fileID: 2042018643}
   m_Layer: 0
   m_Name: Enemy
@@ -1261,20 +1261,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2042018639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042018635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2fe593ab7d013c4f87d366257c6583b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartTimeBtwShots: 0.4
-  ProjecTile: {fileID: 6492266597607600715, guid: cfe4754d64466c44fbafc7b4c22383a6, type: 3}
 --- !u!114 &2042018640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1326,6 +1312,21 @@ CapsuleCollider2D:
   m_Offset: {x: -0.098916255, y: 0.05804609}
   m_Size: {x: 1.8346251, y: 1.18014}
   m_Direction: 1
+--- !u!114 &2042018644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042018635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac46606f1cf0cfe4a87e126d59191e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartTimeBtwShots: 1
+  _bullet: {fileID: 6492266597607600715, guid: cfe4754d64466c44fbafc7b4c22383a6, type: 3}
+  _enemyBullet: {fileID: 3176973507222203888, guid: e5093aabea1c6e34892b0d48874d5ade, type: 3}
 --- !u!1 &2097287601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,7 +1447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3686847998180842069, guid: 33ea65aa5a839ac469a1cb550323ee98, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3686847998180842069, guid: 33ea65aa5a839ac469a1cb550323ee98, type: 3}
       propertyPath: m_LocalPosition.x

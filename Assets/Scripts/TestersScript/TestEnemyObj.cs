@@ -45,7 +45,7 @@ public class TestEnemyObj : MonoBehaviour {
     }
 
     /*public void ShotThePlayer() {
-        Instantiate(ProjecTile, transform.position, );
+        Instantiate(_bullet, transform.position, );
     }*/
 
     private void GenerateVectorForArrow() {

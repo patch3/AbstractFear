@@ -5,9 +5,10 @@ public class TrackingBullet : MonoBehaviour {
     public float Damage { protected get; set; }
     protected float DestroyTime { get; set; }
 
-    private bool _turnRight = false;
     private Vector2 _target;
-    private Transform _player; 
+    private Transform _player;
+    private SpriteRenderer _sprite;
+
 
     // Start is called before the first frame update
     void Start() {
@@ -16,6 +17,8 @@ public class TrackingBullet : MonoBehaviour {
         DestroyTime = 20;
 
         _player = GameObject.FindGameObjectWithTag("Player").transform;
+        _sprite = GetComponent<SpriteRenderer>();
+
         Destroy(gameObject, DestroyTime);
     }
 
@@ -25,11 +28,11 @@ public class TrackingBullet : MonoBehaviour {
         _target = new Vector2(_player.position.x - transform.position.x, _player.position.y - transform.position.y);
 
         // поворот объекта
-        if (!_turnRight && _target.x > 0 || _turnRight && _target.x < 0) { 
-            _turnRight = !_turnRight;
-            Vector3 Scaler = transform.localScale;
-            Scaler.x *= -1;
-            transform.localScale = Scaler;
+        if (!_sprite.flipX && _target.x > 0 || _sprite.flipX && _target.x < 0) {
+            _sprite.flipX = !_sprite.flipX;
+           // Vector3 Scaler = transform.localScale;
+           // Scaler.x *= -1;
+           // transform.localScale = Scaler;
         }
     }
 
