@@ -14,8 +14,6 @@ public class EnemyArrow : MonoBehaviour{
     [SerializeField] private float DestroyTime = 1.25f;
 
 
-
-
     private float TempC = 0.5f;
 
 
