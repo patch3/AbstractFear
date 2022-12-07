@@ -37,6 +37,8 @@ public class BossEnemyEye : MonoBehaviour {
     private bool _secondStage = false;
     private bool _deathStage = false;
 
+   
+
     // Start is called before the first frame update
     void Start() {
         _vMin—amera = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane));

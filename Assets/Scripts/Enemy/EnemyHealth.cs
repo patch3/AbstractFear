@@ -9,6 +9,8 @@ public class EnemyHealth : MonoBehaviour {
 
     public delegate void HpHendler(float hp);
     public event HpHendler EventHpUpdate;
+    public delegate void Death();
+    public event Death EventDeathEnemy;
 
     // прощитать урон и отобразить хп
     public void DealDamage(float damage) {
@@ -25,7 +27,10 @@ public class EnemyHealth : MonoBehaviour {
     // отображение на хит баре
     public void HpBarUpdate() {
         Bar.fillAmount = Fill;
-        if (Fill <= 0) Destroy(gameObject);
+        if (Fill <= 0) {
+            EventDeathEnemy();
+            Destroy(gameObject);
+        }
     }
 
     
