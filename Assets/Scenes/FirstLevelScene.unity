@@ -1031,13 +1031,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 474710508}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 474710513}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: SoundOnOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1195,6 +1195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef69786e194de094b8d22cc46705bd93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonAudio: {fileID: 464821037}
+  _spriteAudioOn: {fileID: 21300000, guid: 4d96809b2203e3649a29cf777fdbb13c, type: 3}
+  _spriteAudioOff: {fileID: 21300000, guid: b72fcdad86b122247bb937f863f72ecb, type: 3}
   _pauseMenuUi: {fileID: 1028523195}
 --- !u!1 &505764524
 GameObject:

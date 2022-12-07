@@ -1,13 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour{
 
     private static bool _gameIsPaused = false;
     private static bool _audioIsPlay = true;
+
+    [SerializeField] private GameObject _buttonAudio;
+
+
+    [SerializeField] private Sprite _spriteAudioOn;
+    [SerializeField] private Sprite _spriteAudioOff;
 
 
     [SerializeField] private GameObject _pauseMenuUi;
@@ -49,6 +53,12 @@ public class PauseMenu : MonoBehaviour{
         Application.Quit();
     }
     public void SoundOnOff() {
-
+        if (_audioIsPlay) {
+            _buttonAudio.GetComponent<Image>().sprite = _spriteAudioOff;
+        } else {
+            _buttonAudio.GetComponent<Image>().sprite = _spriteAudioOn;
+        }
+        _audioIsPlay = !_audioIsPlay;
+        AudioListener.pause = _audioIsPlay;
     }
 }
