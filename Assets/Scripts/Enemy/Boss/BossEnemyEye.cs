@@ -11,14 +11,14 @@ public class BossEnemyEye : MonoBehaviour {
     [SerializeField] private float _secondStageTimeEye = 0.4f;
     [SerializeField] private float _deathStageTimeEye = 0.3f;
     
-
     private float _timeBtwShots = 2;
 
-    [SerializeField] private GameObject _bullet;
-    [SerializeField] private GameObject _enemyBullet;
 
     private Vector3 _vMinСamera;// вектор нижнего левого угла камеры
     private Vector3 _vMaxCamera;//Получаем верхний правый угол камеры
+
+    [SerializeField] private GameObject _bullet;
+    [SerializeField] private GameObject _enemyBullet;
 
     private Transform _plyer;
     private EnemyHealth _health;
@@ -30,23 +30,22 @@ public class BossEnemyEye : MonoBehaviour {
     [SerializeField] private ushort _numShotsAttacks = 10;
     [SerializeField] private ushort _startNumEyesAttacks = 1;
 
-    private _delegateAttack[] _attacksDelegate;
-    private delegate void _delegateAttack();
+    private DelegateAttack[] _attacksDelegate;
+    private delegate void DelegateAttack();
 
     private bool _firstStage = false;
     private bool _secondStage = false;
     private bool _deathStage = false;
 
-   
 
     // Start is called before the first frame update
     void Start() {
         _vMinСamera = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane));
         _vMaxCamera = Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, Camera.main.nearClipPlane));   //Получаем верхний правый угол камеры
 
-        _attacksDelegate = new _delegateAttack[2];
+        _attacksDelegate = new DelegateAttack[2];
         _attacksDelegate[0] = AttackShots;
-        _attacksDelegate[1] = null;
+        //_attacksDelegate[1] = null;
 
         _plyer = GameObject.FindGameObjectWithTag("Player").transform;
         _health = gameObject.GetComponent<EnemyHealth>();
@@ -55,22 +54,22 @@ public class BossEnemyEye : MonoBehaviour {
     }
     // Update is called once per frame
     void FixedUpdate() {
-        if (_timeBtwShots <= 0) {
-            if (_attacksDelegate[_countAttack] != null)
-                _attacksDelegate[_countAttack](); // Атакуем!
-            else {
-                _countAttack = 0;
-                _attacksDelegate[_countAttack]();
-            }
-            --_numRemaingAttack;
-            if (_numRemaingAttack == 0) {
-                _attacking = false;
-                if (_countAttack >= _attacksDelegate.Length - 1) {
-                    _countAttack = 0;
-                } else ++_countAttack;
-            }
-        } else {
+        if (_timeBtwShots > 0) {
             _timeBtwShots -= 0.02f;
+            return;
+        } 
+        if (_attacksDelegate[_countAttack] != null)
+            _attacksDelegate[_countAttack](); // Атакуем!
+        else {
+            _countAttack = 0;
+            _attacksDelegate[_countAttack]();
+        }
+        --_numRemaingAttack;
+        if (_numRemaingAttack == 0) {
+            _attacking = false;
+            if (_countAttack >= _attacksDelegate.Length - 1) {
+                _countAttack = 0;
+            } else ++_countAttack;
         }
     }
     

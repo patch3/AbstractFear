@@ -10,9 +10,8 @@ public class UpgradeObject : MonoBehaviour{
     
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.CompareTag("Player")) {
-            if (UpgradeSelected != null)
-                UpgradeSelected(Type.GetType(_ScriptName));
-            Destroy(gameObject);
+            if (UpgradeSelected != null) UpgradeSelected(Type.GetType(_ScriptName));
+            collision.gameObject.SetActive(false);
         }
     }
 }

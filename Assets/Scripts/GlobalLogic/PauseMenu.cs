@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour{
 
     private static bool _gameIsPaused = false;
-    private static bool _audioIsPlay = true;
+    private static bool _audioIsPlay = false;
 
     [SerializeField] private GameObject _buttonAudio;
 

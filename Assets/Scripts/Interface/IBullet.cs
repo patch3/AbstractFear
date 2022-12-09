@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Bullet: MonoBehaviour {
-    protected virtual float Speed { get; set; }
-    public virtual float Damage {  get;  set; }
-    protected virtual float DestroyTime { get; set; }
+public interface Bullet {
+    protected abstract float Speed { get; set; }
+    public abstract float Damage { get; set; }
+    protected abstract float DestroyTime { get; set; }
 }

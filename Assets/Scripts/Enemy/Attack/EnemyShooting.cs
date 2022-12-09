@@ -11,8 +11,8 @@ public class EnemyShooting : MonoBehaviour{
         Destroy(gameObject, DestroyTime);
         Player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        //Target = _player.position;
-        //Target = new Vector2(_player.position.x - transform.position.x, _player.position.y - transform.position.y);
+        //Target = _playerTarget.position;
+        //Target = new Vector2(_playerTarget.position.x - transform.position.x, _playerTarget.position.y - transform.position.y);
 
         transform.rotation = QuaternionTurn(Player);
     }
