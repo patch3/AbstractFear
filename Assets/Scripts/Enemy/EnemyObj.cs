@@ -17,7 +17,7 @@ public class EnemyObj : MonoBehaviour
         _vMinСamera = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane));
         _vMaxCamera = Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, Camera.main.nearClipPlane));   //Получаем верхний правый угол камеры
 
-        Plyer = GameObject.FindGameObjectWithTag("Player").transform;
+        Plyer = GameObject.FindGameObjectWithTag("_player").transform;
     }
 
     // Update is called once per frame

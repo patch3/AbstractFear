@@ -74,7 +74,7 @@ public class BossEnemyEye : MonoBehaviour {
         }
     }
     
-    // обработчик события изменения hp
+    // обработчик события изменения Hp
     private void CheckNumHp(float hp) {
         if (hp < 75 && !_firstStage) {
             // с новой стадией добавляем новую аттаку

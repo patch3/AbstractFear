@@ -6,7 +6,7 @@ public class EnemyArrow : MonoBehaviour{
     public const float Accuracy = 10000.0f;
 
     public float Speed = 10f;
-    private Transform Player;
+    private Transform _player;
     
     private float _rotationArrow;
     private Quaternion targeеRotation;
@@ -20,10 +20,10 @@ public class EnemyArrow : MonoBehaviour{
     // Start is called before the first frame update
     void Start(){
         Destroy(gameObject, DestroyTime);
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        _rotationArrow = Mathf.Atan2(Player.position.y - transform.position.y,
-        Player.position.x - transform.position.x) * Mathf.Rad2Deg;
+        _rotationArrow = Mathf.Atan2(_player.position.y - transform.position.y,
+        _player.position.x - transform.position.x) * Mathf.Rad2Deg;
         targeеRotation = Quaternion.AngleAxis(_rotationArrow, Vector3.forward);
         // развернуть в обратную сторону от игрока
         transform.rotation = Quaternion.AngleAxis(_rotationArrow + 180f, Vector3.forward);
