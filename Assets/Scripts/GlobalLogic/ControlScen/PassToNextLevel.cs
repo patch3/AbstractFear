@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,11 +12,12 @@ public class PassToNextLevel : MonoBehaviour{
 
 
     // Start is called before the first frame update
-    void Start(){
+    void Start() {
         // привязываю обработчик событий на подбор предмета
-        UpgradeObject.UpgradeSelected += СrutchNextLevel;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<UpgradeController>().UpgradeUpdate += NextLevel;
     }
-    public void СrutchNextLevel(Type T) => NextLevel();
+
     public void NextLevel() {
         gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
         _pointIndexAreaLeft.GetComponent<SpriteRenderer>().sprite = _indexArrow;
@@ -24,7 +26,13 @@ public class PassToNextLevel : MonoBehaviour{
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.CompareTag("Player")) {
-            SceneManager.LoadScene("SecondLevelScene");
+            try {
+                SaveProgress.CurrentPrigress.UpdateLevelCounter();
+                SaveProgress.Saveing(SaveProgress.CurrentPrigress);
+                SceneManager.LoadScene("SecondLevelScene");
+            } catch (Exception ex) {
+                Debug.LogException(ex);
+            }
         }
     }
 }

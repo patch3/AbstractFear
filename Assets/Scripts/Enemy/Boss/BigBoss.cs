@@ -163,7 +163,7 @@ public class BigBoss : MonoBehaviour {
             _playerTarget = GameObject.FindGameObjectWithTag("Player").transform.position;
             _lastStepRot = new Vector2(0, RADIUS_ATTACK);
             GenerateVectorForArrow(CHORD_LENGTH_20);
-            _countAttack = NUM_ARROW_ATTACK_CIRCULAR;
+            _numRemaingAttack = NUM_ARROW_ATTACK_CIRCULAR;
             _timeBtwShots = _timeArrow;
             _attacking = true;
             return;

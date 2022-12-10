@@ -804,12 +804,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 423977261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd55b72d9979c846a1526d53ce28e54, type: 3}
+  m_Script: {fileID: 11500000, guid: 036c1fcd77154574cb798853f3255745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _indexArrow: {fileID: 21300000, guid: d1b334dde9962434087f827efbbbc0c2, type: 3}
   _pointIndexAreaLeft: {fileID: 524203252}
   _pointIndexAreaRight: {fileID: 1865238038}
+  _boss: {fileID: 2042018635}
 --- !u!1 &424439970
 GameObject:
   m_ObjectHideFlags: 0
@@ -2620,7 +2621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bar: {fileID: 505764526}
-  Hp: 10
+  Hp: 100
 --- !u!114 &2042018646
 MonoBehaviour:
   m_ObjectHideFlags: 0

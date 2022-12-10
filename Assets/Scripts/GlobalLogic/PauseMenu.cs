@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -5,7 +6,7 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour{
 
     private static bool _gameIsPaused = false;
-    private static bool _audioIsPlay = false;
+    private static bool _audioIsPaused = false;
 
     [SerializeField] private GameObject _buttonAudio;
 
@@ -50,15 +51,22 @@ public class PauseMenu : MonoBehaviour{
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void QuitGame() {
+        try {
+            SaveProgress.Saveing(SaveProgress.CurrentPrigress);
+        } catch(Exception ex) {
+            Debug.LogException(ex);
+        }
         Application.Quit();
     }
     public void SoundOnOff() {
-        if (_audioIsPlay) {
-            _buttonAudio.GetComponent<Image>().sprite = _spriteAudioOff;
-        } else {
+        if (_audioIsPaused) {
             _buttonAudio.GetComponent<Image>().sprite = _spriteAudioOn;
+        } else {
+            _buttonAudio.GetComponent<Image>().sprite = _spriteAudioOff;
         }
-        _audioIsPlay = !_audioIsPlay;
-        AudioListener.pause = _audioIsPlay;
+        _audioIsPaused = !_audioIsPaused;
+        AudioListener.pause = _audioIsPaused;
     }
+
+
 }

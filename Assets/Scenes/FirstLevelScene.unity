@@ -2685,7 +2685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bar: {fileID: 505764526}
-  Hp: 2
+  Hp: 100
 --- !u!114 &2042018646
 MonoBehaviour:
   m_ObjectHideFlags: 0
