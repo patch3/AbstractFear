@@ -1,15 +1,12 @@
 using UnityEngine;
 
 public class BigBoss : MonoBehaviour {
-    [SerializeField] private float _timeShots = 0.4f;
+    [SerializeField] private float _timeShots = 0.4f; // 1
     [SerializeField] private float _firstStageTimeShots = 0.35f;
     [SerializeField] private float _secondStageTimeShots = 0.3f;
     [SerializeField] private float _deathStageTimeShots = 0.2f;
 
     [SerializeField] private float _timeArrow = 0.2f;
-    [SerializeField] private float _firstStageTimeArrow = 0.15f;
-    [SerializeField] private float _secondStageTimeArrow = 0.1f;
-    [SerializeField] private float _deathStageTimeArrow = 0.05f;
 
     private float _timeBtwShots = 2;    
 
@@ -30,17 +27,12 @@ public class BigBoss : MonoBehaviour {
     private bool _secondStage = false;
     private bool _deathStage = false;
 
-   // private Vector3 _vMinСamera;// вектор нижнего левого угла камеры
-    //private Vector3 _vMaxCamera;//Получаем верхний правый угол камеры
 
     private DelegateAttack[] _attacksDelegate;
     private delegate void DelegateAttack();
 
     // Start is called before the first frame update
     void Start() {
-        //_vMinСamera = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane));
-       // _vMaxCamera = Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, Camera.main.nearClipPlane));   //Получаем верхний правый угол камеры
-
         _attacksDelegate = new DelegateAttack[6];
         _attacksDelegate[0] = AttackShots;
         _attacksDelegate[1] = AttackArrowUnder90;
@@ -80,19 +72,16 @@ public class BigBoss : MonoBehaviour {
             _attacksDelegate[2] = AttackShots;
             _attacksDelegate[3] = AttackArrowUnder45;
             _timeShots = _firstStageTimeShots;
-            _timeArrow = _firstStageTimeArrow;
             _firstStage = true;
         }
         if (hp < 50 && !_secondStage) {
             _attacksDelegate[3] = AttackShots;
             _attacksDelegate[4] = СircularAttack;
             _timeShots = _secondStageTimeShots;
-            _timeArrow = _secondStageTimeArrow;
             _secondStage = true;
         }
         if (hp < 10 && !_deathStage) {
             _timeShots = _deathStageTimeShots;
-            _timeArrow = _deathStageTimeArrow;
             _deathStage = true;
         }
     }

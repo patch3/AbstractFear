@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bar: {fileID: 3176973508867486999}
-  Hp: 20
+  Hp: 10
 --- !u!70 &3176973507222203784
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

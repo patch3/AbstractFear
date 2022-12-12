@@ -26,7 +26,7 @@ public class EnemyShooting : MonoBehaviour{
         if (other.CompareTag("Player")) Destroy(gameObject); // удаляем если пуля пересекла цель
     }
 
-    public Quaternion QuaternionTurn(Transform other) {
+    private Quaternion QuaternionTurn(Transform other) {
         return Quaternion.AngleAxis(
            Mathf.Atan2(other.position.y - transform.position.y,
            other.position.x - transform.position.x) * Mathf.Rad2Deg,

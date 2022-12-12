@@ -1,6 +1,5 @@
 using System;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,10 +16,11 @@ public class RecordProcessing : MonoBehaviour{
         Debug.Log("PastTime: " + SaveProgress.CurrentPrigress.PastTime.ToString(@"hh\:mm\:ss") +
                   "\nPreviousRecord: " + SaveProgress.CurrentPrigress.PreviousRecord.ToString(@"hh\:mm\:ss"));
         SaveProgress.CurrentPrigress.FixTime();
-        _currentRecord.gameObject.GetComponent<TextMeshProUGUI>().text += SaveProgress.CurrentPrigress.PastTime.ToString(@"hh\:mm\:ss");
-        if (SaveProgress.CurrentPrigress.PreviousRecord != TimeSpan.MaxValue) {
-            _previousRecord.gameObject.GetComponent<TextMeshProUGUI>().text += SaveProgress.CurrentPrigress.PreviousRecord.ToString(@"hh\:mm\:ss");
-        }
+        _currentRecord.GetComponent<TextMeshProUGUI>().text += SaveProgress.CurrentPrigress.PastTime.ToString(@"hh\:mm\:ss");
+        if (SaveProgress.CurrentPrigress.PreviousRecord != TimeSpan.MaxValue)
+            _previousRecord.GetComponent<TextMeshProUGUI>().text += SaveProgress.CurrentPrigress.PreviousRecord.ToString(@"hh\:mm\:ss");
+        else
+            _previousRecord.GetComponent<TextMeshProUGUI>().text = "";
         if (SaveProgress.CurrentPrigress.PastTime < SaveProgress.CurrentPrigress.PreviousRecord ||
             SaveProgress.CurrentPrigress.PreviousRecord == TimeSpan.MaxValue) {
             _messageRecord.GetComponent<TextMeshProUGUI>().text = "Новый рекорд!";

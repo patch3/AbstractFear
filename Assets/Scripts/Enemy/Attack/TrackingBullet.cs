@@ -30,9 +30,6 @@ public class TrackingBullet : MonoBehaviour {
         // поворот объекта
         if (!_sprite.flipX && _target.x > 0 || _sprite.flipX && _target.x < 0) {
             _sprite.flipX = !_sprite.flipX;
-           // Vector3 Scaler = transform.localScale;
-           // Scaler.x *= -1;
-           // transform.localScale = Scaler;
         }
     }
 
