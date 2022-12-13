@@ -14,7 +14,7 @@ public class EnemyArrow : MonoBehaviour{
     [SerializeField] private float DestroyTime = 1.25f;
 
 
-    private float TempC = 0.5f;
+    private float _cout = 0.5f;
 
 
     // Start is called before the first frame update
@@ -31,8 +31,8 @@ public class EnemyArrow : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
-        if (TempC > 0) {
-            TempC -= Time.deltaTime;
+        if (_cout > 0) {
+            _cout -= Time.deltaTime;
             return;
         }
         

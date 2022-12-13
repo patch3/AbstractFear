@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8610798633460844903}
   - component: {fileID: 959010900620483970}
   - component: {fileID: 2897873259062701832}
+  - component: {fileID: 4319282505433424930}
   m_Layer: 0
   m_Name: EnamyArrow
   m_TagString: EnemyBullet
@@ -69,7 +70,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 10
   _speedRotarion: 10
-  DestroyTime: 110.22
+  DestroyTime: 5
+--- !u!70 &4319282505433424930
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6492266597607600715}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000006074486, y: -0.009564758}
+  m_Size: {x: 0.40324175, y: 0.17146005}
+  m_Direction: 1
 --- !u!1 &7629499273559358494
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,8 +97,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2597115497817324998}
   - component: {fileID: 7096134605467951950}
-  - component: {fileID: 1474221842250376204}
-  - component: {fileID: 5092636438335238997}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -156,39 +171,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &1474221842250376204
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7629499273559358494}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -9.313226e-10, y: 9.313226e-10}
-  m_Size: {x: 1.0000004, y: 2.0000007}
-  m_Direction: 0
---- !u!95 &5092636438335238997
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7629499273559358494}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 53d9759615d7ad0458165a6643b21ba7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
